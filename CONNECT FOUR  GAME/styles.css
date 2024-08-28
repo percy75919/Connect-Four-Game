@@ -1,0 +1,104 @@
+body {
+    font-family: 'VT323', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    font-family: 'Press Start 2P', cursive; 
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+#board {
+    display: inline-grid;
+    grid-template-columns: repeat(7, auto);
+    gap: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.blue {
+    background-color: #100051; 
+}
+.pink {
+    background-color: #800049bb; 
+}
+#message {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50, 0 0 15px #4CAF50;
+    }
+    50% {
+        box-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+    }
+    100% {
+        box-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50, 0 0 15px #4CAF50;
+    }
+}
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(76, 175, 80, 0.8); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: glow 2s infinite;
+}
+#resetButton:hover {
+    background-color: rgba(43, 233, 87, 0.9);
+    transform: scale(1.05);
+}
+#resetButton:active {
+    transform: scale(0.95);
+}
+#resetButton::after {
+    content: "";
+    background: rgba(255, 255, 255, 0.225);
+    display: block;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transition: all 0.5s;
+    transform: rotate(45deg);
+}
+#resetButton:hover::after {
+    opacity: 2;
+    top: -100%;
+    left: -100%;
+}
